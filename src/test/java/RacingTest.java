@@ -12,7 +12,7 @@ public class RacingTest {
         assertThat(car.getPosition()).isEqualTo(1);
 
         car.move(3);
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
