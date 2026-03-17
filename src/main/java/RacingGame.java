@@ -1,11 +1,27 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RacingGame {
     private final List<Car> cars;
 
     public RacingGame(List<Car> cars){
         this.cars = cars;
+    }
+
+    public void race(int tryCount){
+        for(int i=0; i< tryCount; i++){
+            moveCars();
+        }
+    }
+
+    public void moveCars(){
+        Random random = new Random();
+        for (Car car : cars){
+            int randomValue = random.nextInt(10);
+            car.move(randomValue);
+        }
+
     }
 
     public List<Car> getWinners(){
