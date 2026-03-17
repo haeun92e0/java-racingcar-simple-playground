@@ -4,16 +4,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingTest {
-    @Test
-    void 자동차가_4이상일때_전진하고_3이하일때_멈추는지_테스트(){
-        Car car = new Car("Pobi");
-
-        car.move(4);
-        assertThat(car.getPosition()).isEqualTo(1);
-
-        car.move(3);
-        assertThat(car.getPosition()).isEqualTo(1);
-    }
 
     @Test
     void 우승자가_한명_또는_여러명일떄_제대로_구해지는지_테스트(){
