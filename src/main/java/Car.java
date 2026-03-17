@@ -2,13 +2,15 @@ public class Car {
     private final String name;
     private int position;
 
+    private static final int MIN_FORWARD_NUMBER = 4;
+
     public Car(String name){
         this.name = name;
         this.position = 0;
     }
 
     public void move(int randomValue){
-        if(randomValue >= 4){
+        if(randomValue >= MIN_FORWARD_NUMBER){
             this.position++;
         }
     }
