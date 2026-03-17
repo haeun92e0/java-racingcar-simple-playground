@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RacingTest {
 
     @Test
-    void 우승자가_한명_또는_여러명일떄_제대로_구해지는지_테스트(){
+    void 우승자가_여러명일_경우_공동_우승자를_모두_반환한다(){
         Car pobi = new Car("pobi");
         Car crong = new Car("crong");
         Car rabbit = new Car("rabbit");
