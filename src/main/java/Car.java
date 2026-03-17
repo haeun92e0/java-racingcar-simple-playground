@@ -15,8 +15,8 @@ public class Car {
         }
     }
 
-    public boolean isAtPosition(int MaxPosition){
-        return this.position== MaxPosition;
+    public boolean isAtPosition(int maxPosition){
+        return this.position== maxPosition;
     }
 
     public String getName(){
