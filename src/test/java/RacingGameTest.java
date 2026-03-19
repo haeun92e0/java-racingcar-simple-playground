@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RacingTest {
+public class RacingGameTest {
 
     @Test
     void 우승자가_여러명일_경우_공동_우승자를_모두_반환한다(){
