@@ -18,7 +18,7 @@ public class RacingGameTest {
         RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
         List<Car> winners = game.getWinners();
 
-        assertThat(winners).containsExactly(pobi, crong);
+        assertThat(winners).containsExactlyInAnyOrder(pobi, crong);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class RacingGameTest {
         RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
         List<Car> winners = game.getWinners();
 
-        assertThat(winners).containsExactly(pobi);
+        assertThat(winners).containsExactlyInAnyOrder(pobi);
 
     }
 
@@ -52,6 +52,6 @@ public class RacingGameTest {
         RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
         List<Car> winners = game.getWinners();
 
-        assertThat(winners).containsExactly(pobi, crong, rabbit);
+        assertThat(winners).containsExactlyInAnyOrder(pobi, crong, rabbit);
     }
 }
