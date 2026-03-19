@@ -15,7 +15,7 @@ public class RacingGame {
         }
     }
 
-    public void moveCars(){
+    private void moveCars(){
         Random random = new Random();
         for (Car car : cars){
             int randomValue = random.nextInt(10);
