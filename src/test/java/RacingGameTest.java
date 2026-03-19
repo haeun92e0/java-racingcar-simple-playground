@@ -20,4 +20,38 @@ public class RacingGameTest {
 
         assertThat(winners).containsExactly(pobi, crong);
     }
+
+    @Test
+    void 우승자가_한명일_경우_단일_우승자를_반환한다(){
+        Car pobi = new Car("pobi");
+        Car crong = new Car("crong");
+        Car rabbit = new Car("rabbit");
+
+        pobi.move(5);
+        crong.move(1);
+        rabbit.move(2);
+
+        RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
+        List<Car> winners = game.getWinners();
+
+        assertThat(winners).containsExactly(pobi);
+
+    }
+
+
+    @Test
+    void 모든_자동차가_이동하지_않은_경우_전원을_공동_우승자로_반환한다(){
+        Car pobi = new Car("pobi");
+        Car crong = new Car("crong");
+        Car rabbit = new Car("rabbit");
+
+        pobi.move(1);
+        crong.move(2);
+        rabbit.move(3);
+
+        RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
+        List<Car> winners = game.getWinners();
+
+        assertThat(winners).containsExactly(pobi, crong, rabbit);
+    }
 }
