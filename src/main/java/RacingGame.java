@@ -21,7 +21,6 @@ public class RacingGame {
             int randomValue = random.nextInt(10);
             car.move(randomValue);
         }
-
     }
 
     public List<Car> getWinners(){
