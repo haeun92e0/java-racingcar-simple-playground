@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CarTest {
 
     @Test
-    void 무작위_값이_4_이상이면_전진한다(){
+    void 전달된_값이_4_이상이면_전진한다(){
         Car car = new Car("pobi");
 
         car.move(4);
@@ -14,7 +14,7 @@ class CarTest {
     }
 
     @Test
-    void 무작위_값이_3_이하이면_멈춘다(){
+    void 전달된_값이_3_이하이면_멈춘다(){
         Car car = new Car("rabbit");
 
         car.move(3);
