@@ -31,16 +31,9 @@ public class RacingGame {
     private int getMaxPosition(){
         int max=0;
         for (Car car : cars){
-            max = updateMax(max, car.getPosition());
+            max = Math.max(max, car.getPosition());
         }
         return max;
-    }
-
-    private int updateMax(int currentMax, int carPosition){
-        if (carPosition > currentMax){
-            return carPosition;
-        }
-        return currentMax;
     }
 
     private List<Car> findCarsAt(int maxPosition){
