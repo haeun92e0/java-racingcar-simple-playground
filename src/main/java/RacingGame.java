@@ -29,7 +29,7 @@ public class RacingGame {
     }
 
     private int getMaxPosition(){
-        int max=0;
+        int max = 0;
         for (Car car : cars){
             max = Math.max(max, car.getPosition());
         }
