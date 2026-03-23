@@ -1,9 +1,9 @@
-package Controller;
+package controller;
 
-import Model.RacingGame;
-import Model.RandomNumberGenerator;
-import View.InputView;
-import View.ResultView;
+import model.RacingGame;
+import model.RandomNumberGenerator;
+import view.InputView;
+import view.ResultView;
 
 import java.util.List;
 

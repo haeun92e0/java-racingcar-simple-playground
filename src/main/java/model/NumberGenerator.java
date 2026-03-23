@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 @FunctionalInterface
 public interface NumberGenerator {
