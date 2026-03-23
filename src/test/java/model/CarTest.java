@@ -17,7 +17,7 @@ class CarTest {
 
     @Test
     void 전달된_값이_3_이하이면_멈춘다(){
-        Car car = new Car("rabbit");
+        Car car = new Car("rabbi");
 
         car.move(3);
 
