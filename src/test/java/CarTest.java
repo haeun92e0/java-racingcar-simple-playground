@@ -1,6 +1,7 @@
 import Model.Car;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class CarTest {
 
@@ -21,5 +22,13 @@ class CarTest {
 
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    void 이름이_5자를_초과하면_예외가_발생한다() {
+        assertThatThrownBy(() -> new Car("abcdef"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
 
 }
