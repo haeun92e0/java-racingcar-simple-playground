@@ -1,7 +1,7 @@
-import Model.Car;
-import Model.RacingGame;
+package Model;
+
 import org.junit.jupiter.api.Test;
-import Model.NumberGenerator;
+
 import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
