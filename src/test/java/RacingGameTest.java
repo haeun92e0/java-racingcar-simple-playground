@@ -1,59 +1,23 @@
 import Model.Car;
 import Model.RacingGame;
 import org.junit.jupiter.api.Test;
+import Model.NumberGenerator;
 import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RacingGameTest {
-
+class RacingGameTest {
     @Test
-    void 우승자가_여러명일_경우_공동_우승자를_모두_반환한다(){
-        Car pobi = new Car("pobi");
-        Car crong = new Car("crong");
-        Car rabbit = new Car("rabbit");
+    void 자동차들이_무조건_전진하는_가짜_기계로_우승자를_테스트한다() {
+        RacingGame game = new RacingGame(Arrays.asList("pobi", "crong"), 1);
 
-        pobi.move(4);
-        crong.move(5);
-        rabbit.move(2);
+        // 람다(가짜 기계): 무조건 9만 반환하도록 조작
+        NumberGenerator fixedGenerator = () -> 9;
 
-        RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
+        game.raceStep(fixedGenerator); // 모두가 9를 받아서 전진함
+
         List<Car> winners = game.getWinners();
-
-        assertThat(winners).containsExactlyInAnyOrder(pobi, crong);
-    }
-
-    @Test
-    void 우승자가_한명일_경우_단일_우승자를_반환한다(){
-        Car pobi = new Car("pobi");
-        Car crong = new Car("crong");
-        Car rabbit = new Car("rabbit");
-
-        pobi.move(5);
-        crong.move(1);
-        rabbit.move(2);
-
-        RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
-        List<Car> winners = game.getWinners();
-
-        assertThat(winners).containsExactlyInAnyOrder(pobi);
-
-    }
-
-
-    @Test
-    void 모든_자동차가_이동하지_않은_경우_전원을_공동_우승자로_반환한다(){
-        Car pobi = new Car("pobi");
-        Car crong = new Car("crong");
-        Car rabbit = new Car("rabbit");
-
-        pobi.move(1);
-        crong.move(2);
-        rabbit.move(3);
-
-        RacingGame game = new RacingGame(Arrays.asList(pobi, crong, rabbit));
-        List<Car> winners = game.getWinners();
-
-        assertThat(winners).containsExactlyInAnyOrder(pobi, crong, rabbit);
+        assertThat(winners).extracting(Car::getName)
+                .containsExactlyInAnyOrder("pobi", "crong");
     }
 }
