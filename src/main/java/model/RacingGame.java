@@ -11,7 +11,7 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
-    public void raceStep(NumberGenerator generator) {
+    public void playOneRound(NumberGenerator generator) {
         cars.moveAll(generator);
         tryCount--;
     }

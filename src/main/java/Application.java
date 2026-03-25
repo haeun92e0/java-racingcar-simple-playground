@@ -18,7 +18,7 @@ public class Application {
         // 3. 게임 실행
         ResultView.printRaceStart();
         while (!racingGame.isEnd()) {
-            racingGame.raceStep(randomGenerator);
+            racingGame.playOneRound(randomGenerator);
             ResultView.printStepResult(racingGame.getCars());
         }
 
