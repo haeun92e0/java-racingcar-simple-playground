@@ -1,5 +1,3 @@
-package controller;
-
 import model.RacingGame;
 import model.RandomNumberGenerator;
 import view.InputView;
