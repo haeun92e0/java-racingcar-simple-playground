@@ -8,7 +8,25 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
+        validateMinimumSize(carNames);
+        validateDuplicate(carNames);
         this.cars = createCars(carNames);
+    }
+
+    private void validateMinimumSize(List<String> carNames) {
+        if (carNames == null || carNames.size() < 2) {
+            throw new IllegalArgumentException("[ERROR] 자동차 경주는 최소 2대 이상부터 가능합니다.");
+        }
+    }
+    // 자동차 이름 중복 검사
+    private void validateDuplicate(List<String> carNames) {
+        long uniqueCount = carNames.stream()
+                .distinct()
+                .count();
+
+        if (uniqueCount != carNames.size()) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름은 중복될 수 없습니다.");
+        }
     }
 
     private List<Car> createCars(List<String> carNames) {
