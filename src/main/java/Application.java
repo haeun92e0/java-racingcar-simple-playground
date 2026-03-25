@@ -3,12 +3,14 @@ import model.RandomNumberGenerator;
 import view.InputView;
 import view.ResultView;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
         // 1. 입력 받기
-        List<String> carNames = InputView.getCarNames();
+        String inputCarNames = InputView.getCarNames();
+        List<String> carNames = Arrays.asList(inputCarNames.split(","));
         int tryCount = InputView.getTryCount();
 
         // 2. 게임 세팅
