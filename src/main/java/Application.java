@@ -12,7 +12,8 @@ public class Application {
         String inputCarNames = InputView.getCarNames();
         validateRawInput(inputCarNames);
         List<String> carNames = Arrays.asList(inputCarNames.split(","));
-        int tryCount = InputView.getTryCount();
+        String inputTryCount = InputView.getTryCount();
+        int tryCount = parseAndValidateTryCount(inputTryCount);
 
         // 2. 게임 세팅
         RacingGame racingGame = new RacingGame(carNames, tryCount);
@@ -32,6 +33,25 @@ public class Application {
     private static void validateRawInput(String input) {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름이 입력되지 않았습니다.");
+        }
+    }
+
+    private static int parseAndValidateTryCount(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수가 입력되지 않았습니다.");
+        }
+
+        try {
+            int count = Integer.parseInt(input.trim());
+
+            if (count <= 0) {
+                throw new IllegalArgumentException("[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.");
+            }
+
+            return count;
+
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자만 입력 가능합니다.");
         }
     }
 
