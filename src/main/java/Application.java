@@ -10,6 +10,7 @@ public class Application {
     public static void main(String[] args) {
         // 1. 입력 받기
         String inputCarNames = InputView.getCarNames();
+        validateRawInput(inputCarNames);
         List<String> carNames = Arrays.asList(inputCarNames.split(","));
         int tryCount = InputView.getTryCount();
 
@@ -27,4 +28,13 @@ public class Application {
         // 4. 최종 우승자 출력
         ResultView.printWinners(racingGame.getWinners());
     }
+
+    private static void validateRawInput(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름이 입력되지 않았습니다.");
+        }
+    }
+
 }
+
+
