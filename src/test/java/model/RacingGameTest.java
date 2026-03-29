@@ -14,7 +14,7 @@ class RacingGameTest {
         // 람다(가짜 기계): 무조건 9만 반환하도록 조작
         NumberGenerator fixedGenerator = () -> 9;
 
-        game.raceStep(fixedGenerator); // 모두가 9를 받아서 전진함
+        game.playOneRound(fixedGenerator); // 모두가 9를 받아서 전진함
 
         List<Car> winners = game.getWinners();
         assertThat(winners).extracting(Car::getName)
