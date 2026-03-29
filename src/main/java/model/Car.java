@@ -8,14 +8,20 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        validateNameLength(name);
+        validateName(name);
         this.name = name.trim();
         this.position = 0;
     }
 
-    private void validateNameLength(String name) {
-        if (name == null || name.trim().isEmpty() || name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
+    private void validateName(String name) {
+        // 1. 공백이나 null인지 먼저 검사
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 비어있거나 공백일 수 없습니다.");
+        }
+
+        // 2. 그 다음 글자 수(5자 초과) 검사
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
         }
     }
 
