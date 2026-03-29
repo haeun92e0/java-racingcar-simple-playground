@@ -29,7 +29,4 @@ class CarTest {
         assertThatThrownBy(() -> new Car("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
-
-
 }
