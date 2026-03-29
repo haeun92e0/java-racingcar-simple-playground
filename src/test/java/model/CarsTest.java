@@ -11,18 +11,7 @@ class CarsTest {
     void 우승자가_1명일_때_단독_우승자를_정상적으로_반환한다() {
         Cars cars = new Cars(Arrays.asList("pobi", "crong", "honux"));
 
-        // 1번째 호출(pobi) -> 9 반환 (전진)
-        // 2번째 호출(crong) -> 2 반환 (정지)
-        // 3번째 호출(honux) -> 2 반환 (정지)
-        NumberGenerator customGenerator = new NumberGenerator() {
-            int[] values = {9, 2, 2};
-            int index = 0;
-
-            @Override
-            public int generate() {
-                return values[index++];
-            }
-        };
+        NumberGenerator customGenerator = new CustomNumberGenerator(9,2,2);
 
         // when: 가짜 기계를 넣어서 1턴 진행
         cars.moveAll(customGenerator);
@@ -37,8 +26,7 @@ class CarsTest {
     void 전원_이동_실패_시_전원을_공동_우승자로_정상_반환한다() {
         Cars cars = new Cars(Arrays.asList("pobi", "crong", "honux"));
 
-        // 가짜 기계: 누가 부르든 무조건 2(정지)만 줌
-        NumberGenerator failGenerator = () -> 2;
+        NumberGenerator failGenerator = new CustomNumberGenerator(2, 2, 2);
 
         // when: 가짜 기계를 넣어서 1턴 진행
         cars.moveAll(failGenerator);
