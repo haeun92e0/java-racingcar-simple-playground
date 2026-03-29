@@ -9,7 +9,7 @@ public class Car {
 
     public Car(String name) {
         validateName(name);
-        this.name = name.trim();
+        this.name = name;
         this.position = 0;
     }
 
