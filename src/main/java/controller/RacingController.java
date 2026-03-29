@@ -7,13 +7,16 @@ import view.ResultView;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingController {
 
     public void run(){
         String inputCarNames = InputView.getCarNames();
         validateRawInput(inputCarNames);
-        List<String> carNames = Arrays.asList(inputCarNames.split(","));
+        List<String> carNames = Arrays.stream(inputCarNames.split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
         String inputTryCount = InputView.getTryCount();
         int tryCount = parseAndValidateTryCount(inputTryCount);
 
