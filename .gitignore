@@ -2,6 +2,7 @@
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/Model.Car/**/build/
+!**/src/Car/**/build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
@@ -11,6 +12,7 @@ build/
 *.ipr
 out/
 !**/src/Model.Car/**/out/
+!**/src/Car/**/out/
 !**/src/test/**/out/
 
 ### Eclipse ###
@@ -23,6 +25,7 @@ out/
 .sts4-cache
 bin/
 !**/src/Model.Car/**/bin/
+!**/src/Car/**/bin/
 !**/src/test/**/bin/
 
 ### NetBeans ###
